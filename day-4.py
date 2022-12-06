@@ -40,4 +40,22 @@ def part1(inp):
     return score
 
 assert part1(test_inp) == 2
-print('Part 1: ', part1(day4_inp))
+#print('Part 1: ', part1(day4_inp)) # 532
+
+# part 2 
+
+def overlap(int1, int2):
+    if int(int1.split('-')[-1]) < int(int2.split('-')[0]) or int(int2.split('-')[-1]) < int(int1.split('-')[0]):
+        return False
+    else:
+        return True
+
+def part2(inp):
+    """will find the number of times one assignment is contained in another"""
+    inp = treat_inp(inp)
+    score = sum([overlap(x[0],x[1]) for x in inp])
+
+    return score
+
+assert part2(test_inp) == 4
+print('Part 2: ', part2(day4_inp))
