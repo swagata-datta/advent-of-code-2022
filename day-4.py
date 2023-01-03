@@ -58,4 +58,4 @@ def part2(inp):
     return score
 
 assert part2(test_inp) == 4
-print('Part 2: ', part2(day4_inp))
+print('Part 2: ', part2(day4_inp)) #854
