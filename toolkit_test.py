@@ -16,3 +16,7 @@ assert str_to_tup('3, 4') == (3,4)
 assert str_to_tup('4,5,6') == (4,5,6)
 
 
+x = [['a'],1,2,3,4]
+y = [1,2,3]
+x[0] = x[0] + y
+print(x)

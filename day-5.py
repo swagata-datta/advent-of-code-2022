@@ -45,7 +45,7 @@ def get_procedures(procedures):
 
 def restack(stack_list, procedures):
     '''Does the restacking given stack and procedures
-    returns the top three crates as a string'''
+    returns the top crates as a string'''
     for i in procedures:        # iterating over the procedures
         count = i[0]            # number of crates to be moved
         from_ = i[1]            # stack from while crate is taken
@@ -67,4 +67,32 @@ def part1(inp, lines):
 
 assert part1(inp_test,4) == 'CMZ'
 
-print(part1(inp_day5, 9))
+#print(part1(inp_day5, 9))
+
+# part 2:
+def restack_2(stack_list, procedures):
+    '''Does the restacking given stack and procedures
+    returns the top crates as a string, for part two'''
+    for i in procedures:        # iterating over the procedures
+        print(stack_list)
+        count = i[0]            # number of crates to be moved
+        from_ = i[1]            # stack from while crate is taken
+        to_ = i[2]              # target stack
+        
+        crate = stack_list[from_-1][-count:]
+        del stack_list[from_-1][-count:]
+        stack_list[to_-1] = stack_list[to_-1] + crate
+        
+    top = [i[-1] for i in stack_list]
+    top = ''.join(top)
+    return top
+
+def part2(inp, lines):
+    stack_list = get_stack(treat_files(inp, lines)[0])
+    procedures = get_procedures(treat_files(inp, lines)[1])
+    return restack_2(stack_list, procedures)
+
+
+assert part2(inp_test,4) == 'MCD'
+
+print('part2: ', part2(inp_day5, 9))
