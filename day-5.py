@@ -3,6 +3,9 @@ December 9 2022
 
 https://adventofcode.com/2022/day/5'''
 
+# Comment: This can be done much more efficiently. I manually added 0's in the
+# input files which could be done automatically. 
+
 #part 1
 from toolkit import *
 
@@ -74,7 +77,6 @@ def restack_2(stack_list, procedures):
     '''Does the restacking given stack and procedures
     returns the top crates as a string, for part two'''
     for i in procedures:        # iterating over the procedures
-        print(stack_list)
         count = i[0]            # number of crates to be moved
         from_ = i[1]            # stack from while crate is taken
         to_ = i[2]              # target stack
